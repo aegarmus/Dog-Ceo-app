@@ -1,25 +1,35 @@
-import React, { useState, useEffect, } from "react";
-import { getBreeds } from "../helpers/getBreeds";
+import React, { useState, useEffect } from "react";
+import { getBreeds, dogImg } from "../helpers/getBreeds";
 import Error from "./Error";
 import Select from "react-select";
-import { dogImg } from "../helpers/dogImg";
-import {Cards} from "../components/Cards"
+
+import {getAllBreeds} from "../helpers/getBreeds"
+import { Cards } from "../components/Cards";
+import { filter } from "lodash";
 
 const SelectBreed = ({ updateDog }) => {
   const [breeds, setBreeds] = useState([]);
-  const [breedImage, setBreedImage] = useState([])
+  const [breedImage, setBreedImage] = useState([]);
   const [error, setError] = useState(null);
 
-  const handleSelection = (e) =>{
-    if(e.length >= 1 ){
-      dogImg(e[e.length - 1].value).then(response => {
-        console.log(response, 'aqui')
-        setBreedImage(response, ...breedImage)
-        console.log(breedImage, 'aqui2')
-      })  
-    }
+ 
+  
+ 
+  const searchByFilters = (filters) => {
+    const breedNames = filters.map (filter => filter.value)
+      
 
+      dogImg(breedNames).then((response) => {
+        setBreedImage([response]);
+        
+      });
   }
+  const handleSelection = (filters) => {
+
+    filters && filters.length ? searchByFilters (filters) : setBreedImage ([]);
+
+    
+  };
 
   useEffect(() => {
     updateBreeds();
@@ -36,25 +46,23 @@ const SelectBreed = ({ updateDog }) => {
         setBreeds(newOptions);
       })
       .catch((error) => {
-        console.log(error);
+      
         setError("Error al cargar las razas");
       });
   };
 
   return (
     <>
-        <Select
-      isMulti
-      name="colors"
-      options={breeds}
-      className="basic-multi-select"
-      classNamePrefix="select"
-      onChange={handleSelection}
-    />
-    < Cards  breedImage={breedImage} />
-
+      <Select
+        isMulti
+        name="colors"
+        options={breeds}
+        className="basic-multi-select"
+        classNamePrefix="select"
+        onChange={handleSelection}
+      />
+      <Cards breedImage={breedImage} />
     </>
-
   );
 };
 
