@@ -1,0 +1,16 @@
+.container-grid {
+    width: 80vw !important;
+    margin : 0 10vw 20px 10vw !important;
+    background-color: #EFB7B7;
+
+}
+
+.card-media {
+    border-radius: 15px !important;
+    margin : 5px
+}
+.image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}

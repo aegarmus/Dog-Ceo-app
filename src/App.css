@@ -1,5 +1,11 @@
+:root {
+  background-color: #BD4B4B
+}
+
 .App {
   text-align: center;
+  width: 80vw;
+  margin : 20px 10vw;
 }
 
 .App-logo {
