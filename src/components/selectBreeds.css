@@ -6,10 +6,9 @@
     width: 80vw !important;
     margin : 20px 10vw 0 10vw !important;
     display: flex;
-    background-color: #000000;
+    background-color: #1B1A17;
     border-top-left-radius: 0.5em;
-    border-top-right-radius: 0.5em;
-    /*  */border: 1px solid #000000;
+    border-top-right-radius: 0.5em
 }
 
 .breed-select {
@@ -18,12 +17,12 @@
 }
 
 .title-text {
-    color:aliceblue;
+    color:#A35709;
     
     text-align: center;
 }
 
 .no-filter {
     text-align: center;
-    color:aliceblue;
+    color:#A35709;
 }

@@ -32,28 +32,32 @@ const SelectBreed = () => {
         setBreeds(newOptions);
       })
       .catch((error) => {
-        setError("Error al cargar las razas");
+        setError("Error loading doggys :c");
       });
   };
 
   return (
     <>
-    <Grid className="container-grid-select" xs={12}>
-      <Select
-        isMulti
-        name="breeds"
-        options={breeds}
-        className="basic-multi-select breed-select"
-        classNamePrefix="select"
-        onChange={handleSelection}
-      />
+      <Grid className="container-grid-select" xs={12}>
+        <Select
+          isMulti
+          name="breeds"
+          options={breeds}
+          className="basic-multi-select breed-select"
+          classNamePrefix="select"
+          onChange={handleSelection}
+        />
       </Grid>
       <Grid className="container-grid-title" container xs={12}>
         <Grid item className="item-grid-title" xs={12}>
           <h2 className="title-text">Dog Breeds</h2>
         </Grid>
       </Grid>
-      {breedImage.length ? <Cards breedImage={breedImage} /> : <h2 className="no-filter">Please select a filter</h2>}
+      {breedImage.length ? (
+        <Cards breedImage={breedImage} />
+      ) : (
+        <h2 className="no-filter">Please select a filter</h2>
+      )}
     </>
   );
 };

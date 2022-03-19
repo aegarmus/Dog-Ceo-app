@@ -1,17 +1,20 @@
 :root {
-  background-color: #BD4B4B
+  background-color: #F0E3CA;
+  font-family: "Roboto Slab", serif;
 }
 
 .App {
   text-align: center;
   width: 80vw;
-  margin : 20px 10vw;
+  margin: 20px 10vw;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -41,4 +44,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.title-app {
+  text-align: center;
+  color: #A35709;
 }
